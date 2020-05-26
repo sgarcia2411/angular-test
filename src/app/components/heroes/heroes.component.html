@@ -1,0 +1,40 @@
+
+<div class="container animate__animated animate__fadeInLeft">
+    <h2>List of Heroes</h2>
+    <div class="mt-3">
+        <a class="btn btn-success" routerLink="/heroe/new"><i class="fas fa-plus"></i> Hero</a>
+        <table class="table mt-3">
+            <tr class=" table-dark">
+                <th>Name</th>
+                <th>Status</th>
+                <th>Tools</th>
+            </tr>
+            <tr *ngFor="let hero of heroes">
+                <td>
+                    {{ hero.name }}
+                </td>
+                <td>
+                    <span class="badge" [ngClass]="{ 'badge-success': hero.live, 'badge-danger': !hero.live }">
+                        {{ hero.live ? 'Live' : 'Dead' }}
+                    </span>
+                </td>
+                <td *ngIf="load">
+                    <a class="btn btn-primary btn-sm text-white" [routerLink]="['/heroe', hero.id]">
+                        <i class="fas fa-edit"></i>
+                    </a>
+                    <a class="btn btn-danger btn-sm text-white ml-3" (click)="delete(hero.id)">
+                        <i class="fas fa-trash"></i>
+                    </a>
+                </td>
+            </tr>
+            <tr *ngIf="!load">
+                <td colspan="3" class="text-center">
+                    <p>
+                        <i class="fas fa-spinner fa-pulse"></i>
+                    </p>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+

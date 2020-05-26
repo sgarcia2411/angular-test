@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h3>Home works!</h3>
+        </div>
+        <div class="col-12">
+            <button class="btn btn-info" (click)="show()">Show Alert</button>
+
+            <div class="mt-3 alert alert-primary" role="alert" [ngClass]="{ 'd-block': isDisplay, 'd-none': !isDisplay }">
+                This is a primary alert—check it out!
+            </div>
+        </div>
+    </div>
+    
+</div>

@@ -1,0 +1,19 @@
+<div class="container mt-5 animate__animated animate__fadeInLeft">
+    <a class="btn btn-warning text-white" routerLink="/heroes"><i class="fas fa-arrow-left"></i> Hero</a>
+    <form [formGroup]="form" (ngSubmit)="save()">
+        <div class="row">
+            <label class="col-2">Name:</label>
+            <input class="form-control col-4" type="text" formControlName="name" />
+        </div>
+        <div class="row p-1">
+            <label class="col-2">Live?:</label>
+            <button  type="button" *ngIf="hero.live" class="btn btn-success" (click)="changeLive()"><i class="far fa-smile"></i></button>
+            <button  type="button" *ngIf="!hero.live" class="btn btn-danger" (click)="changeLive()"><i class="far fa-laugh-squint"></i></button>
+        </div>
+        <div class="row">
+            <div class="col">
+                <button class="btn btn-success" type="submit">Save</button>
+            </div>
+        </div>
+    </form>
+</div>
